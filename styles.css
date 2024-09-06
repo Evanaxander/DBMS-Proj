@@ -1,0 +1,411 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5dc; /* Beige background */
+    color: #333; /* Black text for general content */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #3c0a08; /* Dark maroon */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header img {
+    height: 50px;
+    margin-right: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+/* Navigation */
+nav {
+    background-color: #3c0a08; /* Dark maroon */
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+nav ul li a:hover {
+    background-color: #2a0604; /* Darker maroon for hover effect */
+}
+
+/* Sections */
+main {
+    margin: 20px;
+}
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Recommended Tests Section */
+#recommended-tests {
+    background-color: #f5f5dc; /* Beige background */
+    color: #333; /* Black text for readability */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+#recommended-tests h2 {
+    color: #333; /* Black text */
+    border-bottom: 2px solid #3c0a08; /* Dark maroon underline */
+    padding-bottom: 10px;
+}
+
+#recommended-tests h3 {
+    color: #333; /* Black text */
+}
+
+#recommended-tests ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#recommended-tests ul li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-left: 4px solid #3c0a08; /* Dark maroon left border */
+    background-color: #fff; /* White background for each list item */
+    border-radius: 4px;
+}
+
+#recommended-tests ul li span {
+    font-weight: bold;
+    color: #333; /* Black color for subheadings */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #3c0a08; /* Dark maroon */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Form Styles */
+form {
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="email"], form input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px 20px;
+    background: #3c0a08; /* Dark maroon */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #2a0604; /* Darker maroon */
+}
+
+/* Link Styles */
+a {
+    color: #333; /* Black links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #3c0a08; /* Dark maroon */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.dropdown-btn:hover {
+    background-color: #2a0604; /* Darker maroon */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    width: 100%;
+    z-index: 1;
+}
+
+.dropdown-content p {
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content p:last-child {
+    border-bottom: none;
+
+    /* Dropdown Styles */
+.dropdown-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #3c0a08; /* Dark maroon */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    margin: 5px 0; /* Add margin for spacing */
+}
+
+.dropdown-btn:hover {
+    background-color: #2a0604; /* Darker maroon */
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    z-index: 1;
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content ul li {
+    padding: 5px 0;
+}
+
+.dropdown-content ul li:before {
+    content: "• ";
+    color: #3c0a08; /* Dark maroon bullet points */
+    font-weight: bold;
+}
+
+/* Style for nested lists inside dropdown */
+.dropdown-content ul ul {
+    padding-left: 20px;
+}
+
+.dropdown-content ul ul li:before {
+    content: "◦ ";
+    color: #3c0a08; /* Dark maroon bullet points */
+    font-weight: bold;
+}
+
+body {
+    background-color: beige;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+#patient-diagnosis {
+    background-color: beige;
+    border: 1px solid maroon;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: maroon;
+}
+
+label {
+    color: maroon;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid maroon;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: maroon;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: darkred;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+    background-color: maroon;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: beige;
+    border: 1px solid maroon;
+    border-radius: 4px;
+    z-index: 1;
+    width: 100%;
+}
+
+.dropdown-content a {
+    color: maroon;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: maroon;
+    color: white;
+}
+
+.show {
+    display: block;
+}
+
+.patient-info {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid maroon;
+    border-radius: 4px;
+    background-color: beige;
+}
+
+<style>
+        /* Basic styles for dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border: 1px solid #ddd;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {background-color: #f1f1f1;}
+        .show {display: block;}
+        .dropdown-button {
+            background-color: maroon;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .patient-info {
+            margin-top: 20px;
+        }
+    </style>
+    
+}
+
+/* Additional Section Styles */
+section ul li ul {
+    margin-top: 10px;
+}
+
+section ul li ul li {
+    background: #eee;
+}

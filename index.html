@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CadiIoT - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic styles for dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border: 1px solid #ddd;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .dropdown-button {
+            background-color: maroon;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .patient-info {
+            margin-top: 20px;
+        }
+
+        #patient-demo::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+            filter: none;
+        }
+
+        #patient-demo-inner {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        header img {
+            max-width: 100px;
+            margin-right: 20px;
+        }
+
+        .header-text {
+            flex-grow: 1;
+        }
+
+        .header-text h1 {
+            color: maroon;
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .header-text p {
+            font-size: 18px;
+            color: #555;
+            margin: 5px 0 0;
+        }
+
+        .login-button {
+            margin-left: 20px;
+            background-color: maroon;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        nav ul li {
+            float: left;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #111;
+        }
+
+        /* Main Image Styles */
+        .image-container {
+            margin: 20px 0;
+        }
+
+        .banner-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="iotlogo.png.jpg" alt="CadiIoT Logo">
+        <div class="header-text">
+            <h1>CadiIoT - Heart Health Management</h1>
+            <p>Your personalized cardiology assistant.</p>
+        </div>
+        <!-- Login button next to the header -->
+        <a href="login.html" class="login-button">Login</a>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#patient-demo">Patient Demographics</a></li>
+            <li><a href="#patient-diagnosis">Diagnosis Data</a></li>
+            <li><a href="#physician-info">Physician Info</a></li>
+            <li><a href="#facilities-info">Facilities Info</a></li>
+            <li><a href="#recommendations">Diet & Test Recommendations</a></li>
+            <li><a href="#medicines">Medicine Tracker</a></li>
+            
+        </ul>
+    </nav>
+
+    <main>
+        <!-- New Image Added Here -->
+        <div class="image-container">
+            <img src="health.jpg.jpg" height="200" width="1500" alt="Health" class="banner-image">
+        </div>
+
+        <section id="patient-demo">
+            <div id="patient-demo-inner">
+                <img src="patdem.jpg.jpg" height="200" style="float: right;">
+                <h2>Patient Demographic Data</h2>
+
+                <section id="manage-diagnosis">
+                    <section id="patient-diagnosis">
+                        <h2>Manage Patient Diagnosis Data</h2>
+                        <form id="diagnosis-form">
+                            <label for="patient-select">Patient Diagnosis:</label>
+                            <div class="dropdown">
+                                <button type="button" id="dropdown-button" class="dropdown-button" onclick="toggleDropdown()">Select Patient</button>
+                                <div id="dropdown-content" class="dropdown-content">
+                                    <!-- Example entries; you can add more as needed -->
+                                    <a href="#" onclick="showInfo('ID001', 'Ahmed Khan', 'Coronary Artery Disease')">ID001 - Ahmed Khan</a>
+                                    <a href="#" onclick="showInfo('ID002', 'Fatima Begum', 'Heart Failure')">ID002 - Fatima Begum</a>
+                                    <a href="#" onclick="showInfo('ID003', 'Mohammad Ali', 'Arrhythmia')">ID003 - Mohammad Ali</a>
+                                    <a href="#" onclick="showInfo('ID004', 'Rina Sultana', 'Hypertension')">ID004 - Rina Sultana</a>
+                                    <a href="#" onclick="showInfo('ID005', 'Jamal Uddin', 'Myocardial Infarction')">ID005 - Jamal Uddin</a>
+                                    <a href="#" onclick="showInfo('ID006', 'Shamima Akhter', 'Valvular Heart Disease')">ID006 - Shamima Akhter</a>
+                                    <a href="#" onclick="showInfo('ID007', 'Hossain Miah', 'Cardiomyopathy')">ID007 - Hossain Miah</a>
+                                    <a href="#" onclick="showInfo('ID008', 'Nasima Parveen', 'Peripheral Artery Disease')">ID008 - Nasima Parveen</a>
+                                    <a href="#" onclick="showInfo('ID009', 'Omar Faruk', 'Congenital Heart Disease')">ID009 - Omar Faruk</a>
+                                    <a href="#" onclick="showInfo('ID010', 'Rashedul Islam', 'Angina')">ID010 - Rashedul Islam</a>
+                                    <a href="#" onclick="showInfo('ID011', 'Parveen Akter', 'Atrial Fibrillation')">ID011 - Parveen Akter</a>
+                                    <a href="#" onclick="showInfo('ID012', 'Lutfor Rahman', 'Heart Valve Disorder')">ID012 - Lutfor Rahman</a>
+                                    <a href="#" onclick="showInfo('ID013', 'Ayesha Siddiqa', 'Heart Murmur')">ID013 - Ayesha Siddiqa</a>
+                                    <a href="#" onclick="showInfo('ID014', 'Moynul Islam', 'Cardiac Arrest')">ID014 - Moynul Islam</a>
+                                    <a href="#" onclick="showInfo('ID015', 'Sonia Ahmed', 'Mitral Regurgitation')">ID015 - Sonia Ahmed</a>
+                                    <a href="#" onclick="showInfo('ID016', 'Zahidul Islam', 'Stroke')">ID016 - Zahidul Islam</a>
+                                    <a href="#" onclick="showInfo('ID017', 'Rokeya Begum', 'Bradycardia')">ID017 - Rokeya Begum</a>
+                                    <a href="#" onclick="showInfo('ID018', 'Arif Hossain', 'Tachycardia')">ID018 - Arif Hossain</a>
+                                    <a href="#" onclick="showInfo('ID019', 'Meherun Nesa', 'Coronary Spasm')">ID019 - Meherun Nesa</a>
+                                    <a href="#" onclick="showInfo('ID020', 'Abdur Rahman', 'Chronic Heart Disease')">ID020 - Abdur Rahman</a>
+                                </div>
+                            </div>
+                            
+                            <label for="diagnosis">Diagnosis:</label>
+                            <input type="text" id="diagnosis" required>
+
+                            <button type="submit">Save</button>
+                        </form>
+                        <div id="patient-info" class="patient-info"></div>
+                    </section>
+                </section>
+            </div>
+        </section>
+
+        <section id="patient-form-section">
+            <h2>Patient Form</h2>
+            <form id="patient-form">
+                <label for="name">Patient Name:</label>
+                <input type="text" id="name" required>
+                <img src="patform.jpg" height="100" style="float: right;">
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" required>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <button type="submit">Save</button>
+            </form>
+            <button id="show-patient-data">Show Patient Data</button>
+            <div id="patient-data"></div>
+        </section>
+
+        <section id="patient-diagnosis">
+            <h2>Manage Patient Diagnosis Data</h2>
+            <form id="diagnosis-form">
+                <label for="patient-select">Select Patient:</label>
+                <div class="dropdown">
+                    <button type="button" id="dropdown-button" class="dropdown-button" onclick="toggleDropdown()">Select Patient</button>
+                    <div id="dropdown-content" class="dropdown-content">
+                        <!-- Example entries; you can add more as needed -->
+                        <a href="#" onclick="showInfo('ID001', 'Ahmed Khan', 'Coronary Artery Disease')">ID001 - Ahmed Khan</a>
+                        <a href="#" onclick="showInfo('ID002', 'Fatima Begum', 'Heart Failure')">ID002 - Fatima Begum</a>
+                        <a href="#" onclick="showInfo('ID003', 'Mohammad Ali', 'Arrhythmia')">ID003 - Mohammad Ali</a>
+                        <a href="#" onclick="showInfo('ID004', 'Rina Sultana', 'Hypertension')">ID004 - Rina Sultana</a>
+                        <a href="#" onclick="showInfo('ID005', 'Jamal Uddin', 'Myocardial Infarction')">ID005 - Jamal Uddin</a>
+                        <a href="#" onclick="showInfo('ID006', 'Shamima Akhter', 'Valvular Heart Disease')">ID006 - Shamima Akhter</a>
+                        <a href="#" onclick="showInfo('ID007', 'Hossain Miah', 'Cardiomyopathy')">ID007 - Hossain Miah</a>
+                        <a href="#" onclick="showInfo('ID008', 'Nasima Parveen', 'Peripheral Artery Disease')">ID008 - Nasima Parveen</a>
+                        <a href="#" onclick="showInfo('ID009', 'Omar Faruk', 'Congenital Heart Disease')">ID009 - Omar Faruk</a>
+                        <a href="#" onclick="showInfo('ID010', 'Rashedul Islam', 'Angina')">ID010 - Rashedul Islam</a>
+                        <a href="#" onclick="showInfo('ID011', 'Parveen Akter', 'Atrial Fibrillation')">ID011 - Parveen Akter</a>
+                        <a href="#" onclick="showInfo('ID012', 'Lutfor Rahman', 'Heart Valve Disorder')">ID012 - Lutfor Rahman</a>
+                        <a href="#" onclick="showInfo('ID013', 'Ayesha Siddiqa', 'Heart Murmur')">ID013 - Ayesha Siddiqa</a>
+                        <a href="#" onclick="showInfo('ID014', 'Moynul Islam', 'Cardiac Arrest')">ID014 - Moynul Islam</a>
+                        <a href="#" onclick="showInfo('ID015', 'Sonia Ahmed', 'Mitral Regurgitation')">ID015 - Sonia Ahmed</a>
+                        <a href="#" onclick="showInfo('ID016', 'Zahidul Islam', 'Stroke')">ID016 - Zahidul Islam</a>
+                        <a href="#" onclick="showInfo('ID017', 'Rokeya Begum', 'Bradycardia')">ID017 - Rokeya Begum</a>
+                        <a href="#" onclick="showInfo('ID018', 'Arif Hossain', 'Tachycardia')">ID018 - Arif Hossain</a>
+                        <a href="#" onclick="showInfo('ID019', 'Meherun Nesa', 'Coronary Spasm')">ID019 - Meherun Nesa</a>
+                        <a href="#" onclick="showInfo('ID020', 'Abdur Rahman', 'Chronic Heart Disease')">ID020 - Abdur Rahman</a>
+                    </div>
+                </div>
+                
+                <label for="diagnosis">Diagnosis:</label>
+                <input type="text" id="diagnosis" required>
+
+                <button type="submit">Save</button>
+            </form>
+            <div id="patient-info" class="patient-info"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; </p>
+    </footer>
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById("dropdown-content").classList.toggle("show");
+        }
+
+        function showInfo(id, name, diagnosis) {
+            document.getElementById("dropdown-button").textContent = `${id} - ${name}`;
+            document.getElementById("patient-info").innerText = `Patient ID: ${id}\nPatient Name: ${name}\nDiagnosis: ${diagnosis}\nMore details about ${name} will be displayed here.`;
+            toggleDropdown(); // Hide dropdown after selection
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+        </section>
+
+        <section id="physician-info">
+            <h2>Manage Physician Information</h2>
+            <div class="dropdown">
+                <button class="dropdown-btn">Dr. Anwar Hossain</button>
+                <div class="dropdown-content">
+                    <p><strong>Phone:</strong> +880-2-9123456</p>
+                    <p><strong>Address:</strong> 15/2, Mirpur Road, Dhaka 1216</p>
+                    <p><strong>Affiliation:</strong> Bangladesh Medical College</p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-btn">Dr. Fatima Khan</button>
+                <div class="dropdown-content">
+                    <p><strong>Phone:</strong> +880-2-9234567</p>
+                    <p><strong>Address:</strong> 22/1, Gulshan Avenue, Dhaka 1212</p>
+                    <p><strong>Affiliation:</strong> Square Hospitals Ltd.</p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-btn">Dr. Mahmudur Rahman</button>
+                <div class="dropdown-content">
+                    <p><strong>Phone:</strong> +880-2-9345678</p>
+                    <p><strong>Address:</strong> 44, Banani Road, Dhaka 1213</p>
+                    <p><strong>Affiliation:</strong> Evercare Hospital</p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-btn">Dr. Sultana Begum</button>
+                <div class="dropdown-content">
+                    <p><strong>Phone:</strong> +880-2-9456789</p>
+                    <p><strong>Address:</strong> 30, Shahbagh, Dhaka 1211</p>
+                    <p><strong>Affiliation:</strong> Ibrahim Cardiac Hospital & Research Institute</p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-btn">Dr. Rezaul Karim</button>
+                <div class="dropdown-content">
+                    <p><strong>Phone:</strong> +880-2-9567890</p>
+                    <p><strong>Address:</strong> 55, Dhanmondi, Dhaka 1207</p>
+                    <p><strong>Affiliation:</strong> Labaid Cardiac Hospital</p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-btn">Dr. Jannatul Ferdous</button>
+                <div class="dropdown-content">
+                    <p><strong>Phone:</strong> +880-2-9678901</p>
+                    <p><strong>Address:</strong> 78, New Market, Dhaka 1219</p>
+                    <p><strong>Affiliation:</strong> Ibn Sina Specialized Hospital</p>
+                </div>
+            </div>
+        </section>
+        <!-- Other sections -->
+    </main>
+    <footer>
+        <p></p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.dropdown-btn');
+            
+            dropdowns.forEach(button => {
+                button.addEventListener('click', function() {
+                    const dropdownContent = this.nextElementSibling;
+                    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        });
+    </script>
+            </section>
+            
+            <form id="physician-form">
+                <label for="physician-name">Physician Name:</label>
+                <input type="text" id="physician-name" required>
+
+                <label for="specialization">Specialization:</label>
+                <input type="text" id="specialization" required>
+
+                <button type="submit">Save</button>
+            </form>
+        </section>
+
+        <section id="facilities-info">
+            <h2>Manage Facilities Information</h2>
+
+            <section id="treatments-facilities">
+                <h2>Heart Disease Treatments and Facilities</h2>
+                <p>Discover the various treatments available for heart diseases and the leading healthcare facilities in Bangladesh that offer these services. For more information or to schedule a consultation, please contact the respective facilities.</p>
+            
+                <h3>Treatments and Facilities</h3>
+                <ul>
+                    <li class="dropdown">
+                        <button class="dropdown-btn">Coronary Angioplasty and Stenting</button>
+                        <div class="dropdown-content">
+                            <p><em>Addresses:</em> Coronary Artery Disease (CAD), Angina</p>
+                            <p><em>Facilities:</em></p>
+                            <ul>
+                                <li>National Institute of Cardiovascular Diseases (NICVD), Dhaka</li>
+                                <li>Square Hospital, Dhaka</li>
+                                <li>Evercare Hospital, Dhaka</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropdown-btn">Bypass Surgery</button>
+                        <div class="dropdown-content">
+                            <p><em>Addresses:</em> Severe Coronary Artery Disease (CAD)</p>
+                            <p><em>Facilities:</em></p>
+                            <ul>
+                                <li>Ibrahim Cardiac Hospital & Research Institute, Dhaka</li>
+                                <li>Labaid Cardiac Hospital, Dhaka</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropdown-btn">Electrophysiology Study and Ablation</button>
+                        <div class="dropdown-content">
+                            <p><em>Addresses:</em> Arrhythmias, Atrial Fibrillation</p>
+                            <p><em>Facilities:</em></p>
+                            <ul>
+                                <li>Square Hospital, Dhaka</li>
+                                <li>Evercare Hospital, Dhaka</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropdown-btn">Heart Failure Management</button>
+                        <div class="dropdown-content">
+                            <p><em>Addresses:</em> Chronic Heart Failure, Congestive Heart Failure</p>
+                            <p><em>Facilities:</em></p>
+                            <ul>
+                                <li>National Institute of Cardiovascular Diseases (NICVD), Dhaka</li>
+                                <li>Ibn Sina Specialized Hospital, Dhaka</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropdown-btn">Interventional Cardiology</button>
+                        <div class="dropdown-content">
+                            <p><em>Addresses:</em> Various Heart Conditions Requiring Minimally Invasive Procedures</p>
+                            <p><em>Facilities:</em></p>
+                            <ul>
+                                <li>Labaid Cardiac Hospital, Dhaka</li>
+                                <li>Evercare Hospital, Dhaka</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropdown-btn">Cardiac Rehabilitation</button>
+                        <div class="dropdown-content">
+                            <p><em>Addresses:</em> Post-Surgery Recovery, Lifestyle Modification</p>
+                            <p><em>Facilities:</em></p>
+                            <ul>
+                                <li>Ibrahim Cardiac Hospital & Research Institute, Dhaka</li>
+                                <li>National Institute of Cardiovascular Diseases (NICVD), Dhaka</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+        <section id="recommendations">
+            <h2>Diet & Test Recommendations</h2>
+            <img src="doctor.jpg" height="100" width="200" style="float: right;">
+            
+        <header>
+            <img src="iotlogo.png.jpg" height="3000" width="100">
+            <div>
+               <h1> <p style="color:rgb(3, 2, 2);">Healthy Heart path</p> </h1>
+               <p style="color:rgb(3, 2, 2);">Personalized recommendations for diets, tests, and facilities by the Department of Cardiology</p>
+               
+            </div>
+        </header>
+    
+        <section id="introduction">
+            <h2>Our Goal</h2>
+            <p>Welcome to our personalized heart health management section. We offer tailored recommendations for diet, diagnostic tests, and facilities to ensure optimal care for your heart condition.</p>
+        </section>
+    
+        <section id="diet-recommendations">
+            <h2>Diet Recommendations</h2>
+        
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown('hypertension')">For High Blood Pressure (Hypertension)</button>
+                <div id="hypertension" class="dropdown-content hidden">
+                    <p><strong>Foods to Include:</strong> Fruits, vegetables, whole grains, low-fat dairy products, nuts, and seeds.</p>
+                    <p><strong>Foods to Avoid:</strong> Salt, red meat, sweets, and sugary beverages.</p>
+                    <p><strong>Example Meal Plan:</strong></p>
+                    <ul>
+                        <li>Breakfast: Oatmeal with fresh berries.</li>
+                        <li>Lunch: Grilled chicken salad with a variety of vegetables.</li>
+                        <li>Dinner: Baked salmon with quinoa and steamed broccoli.</li>
+                        <li>Snacks: Almonds and carrot sticks.</li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown('cholesterol')">For High Cholesterol</button>
+                <div id="cholesterol" class="dropdown-content hidden">
+                    <p><strong>Foods to Include:</strong> Oats, barley, beans, eggplant, nuts, and vegetable oils.</p>
+                    <p><strong>Foods to Avoid:</strong> Saturated fats (found in red meat and full-fat dairy products), trans fats (found in many commercially baked products).</p>
+                    <p><strong>Example Meal Plan:</strong></p>
+                    <ul>
+                        <li>Breakfast: Smoothie with oats, banana, and almond milk.</li>
+                        <li>Lunch: Lentil soup with a side of whole grain bread.</li>
+                        <li>Dinner: Stir-fried tofu with mixed vegetables and brown rice.</li>
+                        <li>Snacks: Apples and walnuts.</li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown('heart-failure')">For Heart Failure</button>
+                <div id="heart-failure" class="dropdown-content hidden">
+                    <p><strong>Foods to Include:</strong> Lean proteins, whole grains, plenty of fruits and vegetables.</p>
+                    <p><strong>Foods to Avoid:</strong> High-sodium foods, excessive fluids if advised by your doctor.</p>
+                    <p><strong>Example Meal Plan:</strong></p>
+                    <ul>
+                        <li>Breakfast: Greek yogurt with honey and mixed nuts.</li>
+                        <li>Lunch: Turkey and avocado wrap with a side of vegetable sticks.</li>
+                        <li>Dinner: Grilled shrimp with a quinoa salad.</li>
+                        <li>Snacks: Fresh fruit and low-sodium crackers.</li>
+                    </ul>
+                </div>
+            </div>
+        
+            <h3>General Nutritional Advice</h3>
+            <p><strong>Hydration:</strong> Drink plenty of water throughout the day.</p>
+            <p><strong>Portion Control:</strong> Be mindful of portion sizes to avoid overeating.</p>
+            <p><strong>Balanced Meals:</strong> Ensure each meal contains a mix of protein, carbohydrates, and healthy fats.</p>
+        
+            <h3>Recommended Tests</h3>
+<h4>Diagnostic Tests for Heart Health</h4>
+<ul>
+    <li>
+        <button class="dropdown-btn">Blood Tests:</button>
+        <div class="dropdown-content">
+            <ul>
+                <li>Lipid Profile: Measures cholesterol levels.</li>
+                <li>Blood Sugar Test: Checks for diabetes.</li>
+                <li>C-reactive protein (CRP): Measures inflammation in the body.</li>
+            </ul>
+        </div>
+    </li>
+    <li>
+        <button class="dropdown-btn">Imaging Tests:</button>
+        <div class="dropdown-content">
+            <ul>
+                <li>Electrocardiogram (ECG): Records the electrical signals in your heart.</li>
+                <li>Echocardiogram: Uses ultrasound to examine the heart's structure and function.</li>
+                <li>Stress Test: Measures heart function during physical activity.</li>
+            </ul>
+        </div>
+    </li>
+    <li>
+        <button class="dropdown-btn">IoT-Enabled Monitoring:</button>
+        <div class="dropdown-content">
+            <ul>
+                <li>Continuous Blood Pressure Monitoring: Wearable devices that track blood pressure.</li>
+                <li>Heart Rate Monitoring: Smartwatches and other devices that monitor heart rate.</li>
+            </ul>
+        </div>
+    </li>
+</ul>
+        </section>
+        
+        
+        
+        <section id="facilities-resources">
+            <h2>Facilities and Resources</h2>
+            <p>For comprehensive heart health services, including diagnostic tests, treatments, and follow-ups, please visit one of our partner facilities. We are committed to providing high-quality care and resources for your heart health.</p>
+            <h3>Hospitals and Clinics</h3>
+            <ul>
+                <li>
+                    <strong>National Institute of Cardiovascular Diseases (NICVD)</strong><br>
+                    Phone: +880-2-9146231<br>
+                    Address: Sher-e-Bangla Nagar, Dhaka, Bangladesh
+                </li>
+                <li>
+                    <strong>Square Hospital</strong><br>
+                    Phone: +880-2-8144466<br>
+                    Address: 18/F, Bir Uttam Qazi Nuruzzaman Sarak, West Panthapath, Dhaka, Bangladesh
+                </li>
+                <li>
+                    <strong>Ibrahim Cardiac Hospital & Research Institute</strong><br>
+                    Phone: +8801714-006706<br>
+                    Address: 122 Kazi Nazrul Islam Ave, Dhaka 1000
+                </li>
+                <li>
+                    <strong>Evercare Hospital (Formerly Apollo Hospital)</strong><br>
+                    Phone: +8802-55037242<br>
+                    Address: Plot 81, Block-E, Bashundhara Rd, Dhaka 1229, Bangladesh
+                </li>
+                <li>
+                    <strong>Labaid Cardiac Hospital</strong><br>
+                    Phone: +88 09666-710606<br>
+                    Address: House-01 & 03, রোড-০৪, Dhaka 1205, Bangladesh
+                </li>
+                <li>
+                    <strong>Ibn Sina Specialized Hospital</strong><br>
+                    Phone: +8809610-010615<br>
+                    Address: H.No, 68 Rd Number 15, Dhaka 1209, Bangladesh
+                </li>
+            </ul>
+        </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 CadiIoT - All rights reserved.</p>
+        </footer>
+        
+        <script src="script.js"></script>
+        </body>
+                
+</html>
